@@ -1,0 +1,22 @@
+---
+- hosts: web
+  become: yes
+  vars: 
+   ansible_become_pass: "{{ password }}"
+  
+  roles:
+  - influxdb_automation
+
+#  tasks:
+#  - debug:
+#     msg: "printing script: {{query}}"
+#     
+#  - name: Creating Database
+#    shell: "/var/show_database.sh {{query}}"
+#    register: test
+#  - debug:
+#     msg: "Testing: {{ test }}"
+
+    
+    #shell: "cd /var && ./show_database.sh"
+        #shell: kubectl exec influxdb-0 -n monitoring -- bash -c "influx -execute {{ query }}"

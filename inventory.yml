@@ -1,0 +1,2 @@
+[web]
+<host-IP> ansible_connection=ssh ansible_user="{{ username }}" ansible_ssh_pass="{{ password }}" ansible_become_password="{{ password }}"

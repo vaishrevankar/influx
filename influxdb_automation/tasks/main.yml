@@ -1,0 +1,17 @@
+---
+- name: Getting script for {{query}} DATABASE 
+  template:
+    src: "{{query}}.sh"
+    dest: "/var/auto_influx.sh"
+    mode: '777'
+- name: listing the files in var folder
+  shell: "ls -la /var"
+  
+- name: Running Script for {{query}} DATABASE
+  shell: "/var/auto_influx.sh"
+  register: out
+ 
+- name: DATABASES LIST  
+  debug:
+    msg: "DATABASES:{{out.stdout_lines}}"
+
